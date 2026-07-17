@@ -3,17 +3,28 @@
     // Focalizar para exibir as descrições dos atributos existentes.
     // Para obter mais informações, acesse: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
-    "configurations": [     
-        {
-            "name": "C#: API Debug",
-            "type": "dotnet",
-            "request": "launch",
-            "projectPath": "${workspaceFolder}/API.csproj"
-        },
-        {
-            "name": ".NET Core Attach",
-            "type": "coreclr",
-            "request": "attach"
-        }
-    ]
+        "configurations": [
+            {
+                "name": "Debug Angular",
+                "type": "pwa-chrome",
+                "request": "launch",
+                "url": "https://localhost:4200",
+                "webRoot": "${workspaceFolder}/client"
+            }
+        ]
+
+    // "version": "0.2.0",
+    // "configurations": [     
+    //     {
+    //         "name": "C#: API Debug",
+    //         "type": "dotnet",
+    //         "request": "launch",
+    //         "projectPath": "${workspaceFolder}/API.csproj"
+    //     },
+    //     {
+    //         "name": ".NET Core Attach",
+    //         "type": "coreclr",
+    //         "request": "attach"
+    //     }
+    // ]
 }
