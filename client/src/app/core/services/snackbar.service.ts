@@ -14,7 +14,7 @@ export class SnackbarService {
     });
   }
 
-  sucess(message: string) {
+  success(message: string) {
     this.snackbar.open(message, 'Close', {
       duration: 3000,
       panelClass: ['snack-success'],

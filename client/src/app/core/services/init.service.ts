@@ -1,12 +1,14 @@
 import { inject, Injectable } from '@angular/core';
 import { CartService } from './cart.service';
-import { catchError, of } from 'rxjs';
+import { catchError, forkJoin, of } from 'rxjs';
+import { AccountService } from './account.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class InitService {
   private cartService = inject(CartService);
+  private accountService = inject(AccountService);
 
   init() {
     const cartId = localStorage.getItem('cart_id');
@@ -14,6 +16,9 @@ export class InitService {
       ? this.cartService.getCart(cartId).pipe(catchError(() => of(null)))
       : of(null);
 
-    return cart$;
+    return forkJoin({
+      cart: cart$,
+      user: this.accountService.getUserInfo()
+    });
   }
 }
